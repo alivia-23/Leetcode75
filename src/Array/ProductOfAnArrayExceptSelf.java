@@ -14,6 +14,7 @@ package Array;
  * Output: [0,0,9,0,0]
  */
 public class ProductOfAnArrayExceptSelf {
+    /*
     public static int[] productExceptSelf(int[] nums) {
         int n = nums.length;
         int[] left = new int[n];
@@ -30,6 +31,24 @@ public class ProductOfAnArrayExceptSelf {
 
         for (int i = 0; i < n; i++) {
             result[i] = left[i] * right[i];
+        }
+        return result;
+    }*/
+
+    //Alternative method without using extra array
+    public static int[] productExceptSelf(int[] nums) {
+        int n = nums.length;
+        int[] result = new int[n];
+
+        result[0] = 1;
+        for (int i = 1; i < n; i++) {
+            result[i] = result[i - 1] * nums[i - 1];
+        }
+
+        int rightP = 1;
+        for (int i = n - 1; i >= 0; i--) {
+            result[i] = rightP * result[i];
+            rightP *= nums[i];
         }
         return result;
     }
