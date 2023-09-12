@@ -22,7 +22,7 @@ package Array;
 public class IncreasingTriplet {
     public static boolean increasingTriplet(int[] nums) {
         if (nums.length < 3) return false;
-        
+
         int firstNum = Integer.MAX_VALUE;
         int secondNum = Integer.MAX_VALUE;
 
